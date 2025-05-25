@@ -9,8 +9,8 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
-    environment:
-      NODE_ENV: development
+    env_file:
+      - .env
 
   frontend:
     build:
@@ -20,5 +20,18 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    environment:
-      NODE_ENV: development
+    env_file:
+      - .env
+
+  db:
+    image: postgres:17
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
