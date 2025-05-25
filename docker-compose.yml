@@ -35,3 +35,9 @@ services:
 
 volumes:
   db_data:
+
+mailhog:
+  image: mailhog/mailhog
+  ports:
+    - "8025:8025" # Interface web
+    - "1025:1025" # SMTP

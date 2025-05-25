@@ -1,6 +1,7 @@
 import { AppDataSource } from "../data-source";
 import { Movie } from "../entities/movie.entity";
 import { MovieListParams } from "../interfaces/MovieListParams";
+import { sendMail } from "../services/email.service";
 
 export class MovieService {
   static async list(params: MovieListParams) {
@@ -47,6 +48,16 @@ export class MovieService {
     const repo = AppDataSource.getRepository(Movie);
     const movie = repo.create(data);
     await repo.save(movie);
+
+    // TODO: aplicar disparo de email
+    // if (new Date(movie.releaseDate) > new Date()) {
+    //   await sendMail(
+    //     user.email,
+    //     "Novo filme cadastrado!",
+    //     `<p>O filme <b>${movie.title}</b> será lançado em ${movie.releaseDate}.</p>`
+    //   );
+    // }
+
     return movie;
   }
 
