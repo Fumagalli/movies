@@ -21,4 +21,6 @@ AppDataSource.initialize().then(() => {
   app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
   });
+}).catch((err) => {
+  console.error("Database connection failed:", err);
 });
