@@ -25,3 +25,14 @@ export class UserController {
     }
   }
 }
+
+
+// Exemplo do multer
+// import { upload } from "../middlewares/upload.middleware";
+
+// router.post(
+//   "/:id/image",
+//   authMiddleware,
+//   upload.single("image"),
+//   MovieController.uploadImage
+// );

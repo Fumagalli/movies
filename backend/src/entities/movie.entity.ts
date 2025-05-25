@@ -22,4 +22,7 @@ export class Movie {
 
   @Column()
   duration!: number;
+
+  @Column({ nullable: true })
+  imagePath?: string;
 }

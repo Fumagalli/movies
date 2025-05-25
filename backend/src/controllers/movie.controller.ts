@@ -41,4 +41,15 @@ export class MovieController {
     await MovieService.remove(Number(req.params.id));
     res.status(204).send();
   }
+
+  static async uploadImage(req: Request, res: Response) {
+    const movieId = Number(req.params.id);
+    if (!req.file) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
+    const imagePath = req.file.filename;
+    const movie = await MovieService.update(movieId, { imagePath });
+    if (!movie) return res.status(404).json({ message: "Movie not found" });
+    res.json({ message: "Image uploaded", imagePath });
+  }
 }
