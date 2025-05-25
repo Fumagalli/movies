@@ -3,7 +3,7 @@ import { AppDataSource } from "../data-source";
 import { Movie } from "../entities/movie.entity";
 
 export class FilterController {
-  static async list(req: Request, res: Response) {
+  static async list(req: Request, res: Response): Promise<void> {
     // Busca valores mínimos e máximos do banco para ajudar o frontend
     const repo = AppDataSource.getRepository(Movie);
 

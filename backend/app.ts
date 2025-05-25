@@ -1,11 +1,11 @@
 import "reflect-metadata";
-import express from "express";
-import cors from "cors";
+import * as express from "express";
+import * as cors from "cors";
 import { AppDataSource } from "./src/data-source";
 import userRoutes from "./src/routes/user.routes";
 import movieRoutes from "./src/routes/movie.routes";
 import filterRoutes from "./src/routes/filter.routes";
-import path from "path";
+import * as path from "path";
 
 const app = express();
 const port = 3000

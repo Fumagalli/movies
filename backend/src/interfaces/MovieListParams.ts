@@ -4,6 +4,8 @@ export interface MovieListParams {
   maxDuration?: number;
   startDate?: string;
   endDate?: string;
+  minBudget?: number;
+  maxBudget?: number;
   page?: number;
   limit?: number;
 }

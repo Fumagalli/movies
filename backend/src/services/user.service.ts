@@ -23,4 +23,9 @@ export class UserService {
     const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET || "secret", { expiresIn: "1d" });
     return { user, token };
   }
+
+  static async getById(id: number) {
+    const repo = AppDataSource.getRepository(User);
+    return repo.findOneBy({ id });
+  }
 }

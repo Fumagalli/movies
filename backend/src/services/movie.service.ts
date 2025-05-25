@@ -1,7 +1,7 @@
 import { AppDataSource } from "../data-source";
 import { Movie } from "../entities/movie.entity";
 import { MovieListParams } from "../interfaces/MovieListParams";
-import { sendMail } from "../services/email.service";
+// import { sendMail } from "../services/email.service";
 
 export class MovieService {
   static async list(params: MovieListParams) {

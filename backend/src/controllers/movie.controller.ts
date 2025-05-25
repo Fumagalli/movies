@@ -2,11 +2,6 @@ import { Request, Response } from "express";
 import { MovieService } from "../services/movie.service";
 
 export class MovieController {
-  // static async list(req: Request, res: Response) {
-  //   const movies = await MovieService.list();
-  //   res.json(movies);
-  // }
-
   static async list(req: Request, res: Response) {
     const { q, minDuration, maxDuration, startDate, endDate, page = 1, limit = 10 } = req.query;
     const result = await MovieService.list({
@@ -28,7 +23,7 @@ export class MovieController {
 
   static async getById(req: Request, res: Response) {
     const movie = await MovieService.getById(Number(req.params.id));
-    if (!movie) return res.status(404).json({ message: "Not found" });
+    if (!movie) res.status(404).json({ message: "Not found" });
     res.json(movie);
   }
 
@@ -45,11 +40,11 @@ export class MovieController {
   static async uploadImage(req: Request, res: Response) {
     const movieId = Number(req.params.id);
     if (!req.file) {
-      return res.status(400).json({ message: "No file uploaded" });
+      res.status(400).json({ message: "No file uploaded" });
     }
     const imagePath = req.file.filename;
     const movie = await MovieService.update(movieId, { imagePath });
-    if (!movie) return res.status(404).json({ message: "Movie not found" });
+    if (!movie) res.status(404).json({ message: "Movie not found" });
     res.json({ message: "Image uploaded", imagePath });
   }
 }

@@ -1,9 +1,15 @@
 import { Router } from "express";
 import { UserController } from "../controllers/user.controller";
+// import { authMiddleware } from "../middlewares/auth.middleware";
 
 const router = Router();
 
-router.post("/register", UserController.register);
-router.post("/login", UserController.login);
+router.post("/register", async (req, res) => {
+  await UserController.register(req, res);
+});
+router.post("/login", async (req, res) => {
+  await UserController.login(req, res);
+});
+// router.get("/me", authMiddleware, UserController.me();
 
 export default router;

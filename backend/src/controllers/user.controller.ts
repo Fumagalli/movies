@@ -9,9 +9,9 @@ export class UserController {
     try {
       const { name, email, password }: UserRegisterDTO = req.body;
       const user = await UserService.register(name, email, password);
-      res.status(201).json(user);
+      return res.status(201).json(user);
     } catch (err: any) {
-      res.status(400).json({ message: err.message });
+      return res.status(400).json({ message: err.message });
     }
   }
 
@@ -19,10 +19,23 @@ export class UserController {
     try {
       const { email, password }:UserLoginDTO = req.body;
       const result = await UserService.login(email, password);
-      res.json(result);
+      return res.json(result);
     } catch (err: any) {
-      res.status(400).json({ message: err.message });
+      return res.status(400).json({ message: err.message });
     }
+  }
+
+  static async me(req: Request, res: Response) {
+    if (!req.user) {
+      return res.status(401).json({ message: "Not authenticated" });
+    }
+    const user = await UserService.getById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const { ...userData } = user;
+    return res.json(userData);
   }
 }
 
