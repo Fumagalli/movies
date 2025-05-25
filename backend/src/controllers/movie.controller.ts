@@ -2,9 +2,23 @@ import { Request, Response } from "express";
 import { MovieService } from "../services/movie.service";
 
 export class MovieController {
+  // static async list(req: Request, res: Response) {
+  //   const movies = await MovieService.list();
+  //   res.json(movies);
+  // }
+
   static async list(req: Request, res: Response) {
-    const movies = await MovieService.list();
-    res.json(movies);
+    const { q, minDuration, maxDuration, startDate, endDate, page = 1, limit = 10 } = req.query;
+    const result = await MovieService.list({
+      q: q as string,
+      minDuration: minDuration ? Number(minDuration) : undefined,
+      maxDuration: maxDuration ? Number(maxDuration) : undefined,
+      startDate: startDate as string,
+      endDate: endDate as string,
+      page: Number(page),
+      limit: Number(limit),
+    });
+    res.json(result);
   }
 
   static async create(req: Request, res: Response) {

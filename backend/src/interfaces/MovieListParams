@@ -1,0 +1,9 @@
+export interface MovieListParams {
+  q?: string;
+  minDuration?: number;
+  maxDuration?: number;
+  startDate?: string;
+  endDate?: string;
+  page?: number;
+  limit?: number;
+}
