@@ -14,7 +14,7 @@ RUN yarn install
 COPY . .
 
 # Exponha a porta usada pelo frontend (ajuste conforme necessário)
-EXPOSE 3000
+EXPOSE 3001
 
 # Comando para iniciar o frontend (ajuste conforme necessário)
 CMD ["yarn", "dev"]
