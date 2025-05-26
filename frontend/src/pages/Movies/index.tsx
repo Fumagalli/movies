@@ -9,19 +9,11 @@ import { Button } from "../../components/Button";
 import PosterImg from "../../assets/Poster.png";
 
 import './styles.scss';
-import { MovieCard } from "../../components/MovieCard";
 
 export function MoviesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    getMovies()
-      .then(data => setMovies(Array.isArray(data.data) ? data.data : []))
-      .catch(err => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
 
   const movie = {
     id: 1,
@@ -32,41 +24,33 @@ export function MoviesPage() {
     duration: 120,
   };
 
-  const teste = [];
-  teste.push(movie)
-  teste.push(movie)
-  teste.push(movie)
-  teste.push(movie)
-  teste.push(movie)
+  useEffect(() => {
+    getMovies()
+      .then(data => setMovies(Array.isArray(data.data) ? data.data : []))
+      .catch(err => setError(err.message))
+      .finally(() => setLoading(false))
+      .then(() => {
+        setMovies([movie, movie, movie, movie, movie, movie, movie, movie, movie, movie, movie, movie, movie, movie, movie]);
+      })
+  }, []);
 
-  teste.push(movie)
-  teste.push(movie)
-  teste.push(movie)
-  teste.push(movie)
-  teste.push(movie)
 
   return (
     <PageTemplate>
       <div className="filter" style={{ padding: "24px" }}>
         <p>Pesquise por filmes</p>
         <p>Filtros</p>
-        <Button className="primary">
+        <Button>
           Adicionar Filme
         </Button>
       </div>
 
       <section className="movies">
-        {/* <h2>Filmes</h2>
-        <hr />
-        <MovieCard movie={movie} />
-        <hr />
-        <Loader /> */}
-        {/* <hr /> */}
         {loading && <Loader />}
-        {/* <hr /> */}
+
         {error && <ErrorMessage message={error} />}
-        {/* <hr /> */}
-        {!loading && !error && <MovieList movies={teste} />}
+
+        {!loading && !error && <MovieList movies={movies} />}
       </section>
 
       <div className="pagination" style={{ padding: "24px" }}>

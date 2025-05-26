@@ -5,6 +5,7 @@ import { ErrorMessage } from "../../components/ErrorMessage";
 import { PageTemplate } from "../../components/PageTemplate";
 import "./styles.scss";
 import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
 
 export function RegisterPage() {
   const [name, setName] = useState("");
@@ -37,57 +38,33 @@ export function RegisterPage() {
             <form className="register-form" onSubmit={handleSubmit}>
               {error && <ErrorMessage message={error} />}
 
-              <div className="input-group">
-                <label>
-                  Nome
-                  <input
-                    type="text"
-                    placeholder="Digite seu nome"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    required
-                  />
-                </label>
-              </div>
+              <Input
+                fieldName="Nome"
+                type="text"
+                value={name}
+                onChange={e => setName(e.target.value)}
+              />
 
-              <div className="input-group">
-                <label>
-                  E-mail
-                  <input
-                    type="email"
-                    placeholder="Digite seu e-mail"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required
-                  />
-                </label>
-              </div>
+              <Input
+                fieldName="E-mail"
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
 
-              <div className="input-group">
-                <label>
-                  Senha
-                  <input
-                    type="password"
-                    placeholder="Digite sua senha"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    required
-                  />
-                </label>
-              </div>
+              <Input
+                fieldName="Senha"
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
 
-              <div className="input-group">
-                <label>
-                  Confirmação de senha
-                  <input
-                    type="password"
-                    placeholder="Digite sua senha novamente"
-                    value={confirmPassword}
-                    onChange={e => setConfirmPassword(e.target.value)}
-                    required
-                  />
-                </label>
-              </div>
+              <Input
+                fieldName="Confirmação de senha"
+                type="password"
+                value={confirmPassword}
+                onChange={e => setConfirmPassword(e.target.value)}
+              />
 
               <div className="register__submit">
                 {/* <Link to="/movies">Esqueci minha senha</Link> */}

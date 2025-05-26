@@ -5,6 +5,7 @@ import { ErrorMessage } from "../../components/ErrorMessage";
 import { PageTemplate } from "../../components/PageTemplate";
 import "./styles.scss";
 import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
 
 export function LoginPage() {
   const [email, setEmail] = useState("");
@@ -34,46 +35,26 @@ export function LoginPage() {
           <form className="login-form" onSubmit={handleSubmit}>
             {error && <ErrorMessage message={error} />}
 
-            <div className="input-group">
-              <label>
-                {/* TODO: Permitir login com nome */}
-                {/* Nome/ */}
-                E-mail
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  required
-                />
-              </label>
-            </div>
+            <Input
+              fieldName="E-mail"
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
 
-            <div className="input-group">
-              <label>
-                Senha
-                <input
-                  type="password"
-                  placeholder="Senha"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  required
-                />
-              </label>
-            </div>
+            <Input
+              fieldName="Senha"
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
 
             <div className="login__submit">
               <Link to="/movies">Esqueci minha senha</Link>
 
               <Button type="submit" className="primary">Entrar</Button>
             </div>
-
-
           </form>
-
-          {/* <p className="login-link">
-            Não tem conta? <Link to="/register">Cadastre-se</Link>
-          </p> */}
         </div>
       </div>
     </PageTemplate>

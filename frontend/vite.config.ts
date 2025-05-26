@@ -14,8 +14,8 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
-    hmr: {
-      clientPort: 5001,
-    },
+    // hmr: {
+    //   clientPort: 3000,
+    // },
   },
 });
