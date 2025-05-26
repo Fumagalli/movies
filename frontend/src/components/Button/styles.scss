@@ -1,93 +1,31 @@
 .button {
-  max-height: 44px; // não sei se essa regra é intencional, mas os botões mesmo que fiquem desalinhados estão  44px de altura. Vide icone de troca de light/dark mode
   border: 0;
+  height: 44px;
   padding: 12px 20px;
   border-radius: 2px;
-  padding-top: 12px;
-  padding-right: 20px;
-  padding-bottom: 12px;
-  padding-left: 20px;
-
-  font-family: Roboto;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0px;
-  text-align: center;
-
   background-color: #8e4ec6;
   color: #fff;
+  overflow: hidden;
+
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 100%;
+  text-align: center;
+  cursor: pointer;
 
   &:hover {
-    border-radius: 2px;
-    padding-top: 12px;
-    padding-right: 20px;
-    padding-bottom: 12px;
-    padding-left: 20px;
-
-    font-family: Roboto;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0px;
-    text-align: center;
-
     background-color: #9a5cd0;
   }
 
   &:active {
-    border-radius: 2px;
-    padding-top: 12px;
-    padding-right: 20px;
-    padding-bottom: 12px;
-    padding-left: 20px;
-
-    font-family: Roboto;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0px;
-    text-align: center;
-
     background-color: #8457aa;
   }
 
   &:disabled {
-    gap: 12px;
-    border-radius: 2px;
-    padding-top: 12px;
-    padding-right: 20px;
-    padding-bottom: 12px;
-    padding-left: 20px;
-
-    font-family: Roboto;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0px;
-    text-align: center;
-
     background-color: #6f6d78;
     color: #ece9fd7d;
   }
 
-  &.primary {
-    background-color: #8e4ec6;
-    color: #fff;
-
-    &:hover {
-      background-color: #9a5cd0;
-    }
-
-    &:active {
-      background-color: #8457aa;
-    }
-
-    &:disabled {
-      background-color: #6f6d78;
-      color: #ece9fd7d;
-    }
-  }
   &.secondary {
     background-color: #b744f714;
     color: #f1ddfffa;
