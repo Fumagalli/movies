@@ -1,0 +1,31 @@
+@import "./colors.scss";
+
+// Tema claro
+:root {
+  --color-bg: #faf8ff;
+  --color-bg-card: #fff;
+  --color-bg-input: #f4f0fa;
+  --color-primary: #8e4ec6;
+  --color-primary-light: #b744f7;
+  --color-primary-dark: #6e32b7;
+  --color-text: #232225;
+  --color-text-secondary: #605f66;
+  --color-border: #e1d9f0;
+  --color-error: #e74c3c;
+  --color-success: #27ae60;
+}
+
+// Tema escuro
+[data-theme="dark"] {
+  --color-bg: #18111b;
+  --color-bg-card: #232225;
+  --color-bg-input: #1a191b;
+  --color-primary: #8e4ec6;
+  --color-primary-light: #b744f7;
+  --color-primary-dark: #6e32b7;
+  --color-text: #eeeef0;
+  --color-text-secondary: #b5b2bc;
+  --color-border: #3c393f;
+  --color-error: #e74c3c;
+  --color-success: #27ae60;
+}
