@@ -25,9 +25,9 @@ export function Header() {
         </Link>
 
         <nav>
-          {/* <Button onClick={() => console.log('a1')}>
+          <Button className="secondary" onClick={() => console.log('a1')}>
             <Sun fill="#fff" />
-          </Button> */}
+          </Button>
 
           {!token && (
             <Button onClick={() => navigate("/register")}>

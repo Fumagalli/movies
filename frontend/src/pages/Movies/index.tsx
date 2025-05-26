@@ -4,16 +4,31 @@ import { MovieList } from "../../components/MovieList";
 import { Loader } from "../../components/Loader";
 import { ErrorMessage } from "../../components/ErrorMessage";
 import { PageTemplate } from "../../components/PageTemplate";
-import type { Movie } from "../../types/Movie";
+import { Filter } from "../../components/Filter";
 import { Button } from "../../components/Button";
 import PosterImg from "../../assets/Poster.png";
+
+import type { Movie } from "../../types/Movie";
 
 import './styles.scss';
 
 export function MoviesPage() {
+  const [name, setName] = useState("");
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const handleSearch = () => {
+    // Chame a busca de filmes aqui
+  };
+
+  const handleOpenFilters = () => {
+    // Abrir modal de filtros futuramente
+  };
+
+  const handleAddMovie = () => {
+    // Abrir modal de adicionar filme futuramente
+  };
 
   const movie = {
     id: 1,
@@ -37,13 +52,13 @@ export function MoviesPage() {
 
   return (
     <PageTemplate>
-      <div className="filter" style={{ padding: "24px" }}>
-        <p>Pesquise por filmes</p>
-        <p>Filtros</p>
-        <Button>
-          Adicionar Filme
-        </Button>
-      </div>
+      <Filter
+        value={name}
+        onChange={setName}
+        onSearch={handleSearch}
+        onOpenFilters={handleOpenFilters}
+        onAddMovie={handleAddMovie}
+      />
 
       <section className="movies">
         {loading && <Loader />}
