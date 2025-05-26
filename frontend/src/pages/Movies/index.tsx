@@ -5,6 +5,11 @@ import { Loader } from "../../components/Loader";
 import { ErrorMessage } from "../../components/ErrorMessage";
 import { PageTemplate } from "../../components/PageTemplate";
 import type { Movie } from "../../types/Movie";
+import { Button } from "../../components/Button";
+import PosterImg from "../../assets/Poster.png";
+
+import './styles.scss';
+import { MovieCard } from "../../components/MovieCard";
 
 export function MoviesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -18,12 +23,55 @@ export function MoviesPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  const movie = {
+    id: 1,
+    title: "titulo do filme",
+    description: "descrição do filme",
+    posterUrl: PosterImg,
+    releaseDate: "data de lançamento",
+    duration: 120,
+  };
+
+  const teste = [];
+  teste.push(movie)
+  teste.push(movie)
+  teste.push(movie)
+  teste.push(movie)
+  teste.push(movie)
+
+  teste.push(movie)
+  teste.push(movie)
+  teste.push(movie)
+  teste.push(movie)
+  teste.push(movie)
+
   return (
     <PageTemplate>
-      <h2>Filmes</h2>
-      {loading && <Loader />}
-      {error && <ErrorMessage message={error} />}
-      {!loading && !error && <MovieList movies={movies} />}
+      <div className="filter" style={{ padding: "24px" }}>
+        <p>Pesquise por filmes</p>
+        <p>Filtros</p>
+        <Button className="primary">
+          Adicionar Filme
+        </Button>
+      </div>
+
+      <section className="movies">
+        {/* <h2>Filmes</h2>
+        <hr />
+        <MovieCard movie={movie} />
+        <hr />
+        <Loader /> */}
+        {/* <hr /> */}
+        {loading && <Loader />}
+        {/* <hr /> */}
+        {error && <ErrorMessage message={error} />}
+        {/* <hr /> */}
+        {!loading && !error && <MovieList movies={teste} />}
+      </section>
+
+      <div className="pagination" style={{ padding: "24px" }}>
+      </div>
+
     </PageTemplate>
   );
 }

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoginPage } from "./pages/Login";
+import { RegisterPage } from "./pages/Register";
 import { MoviesPage } from "./pages/Movies";
 import { MovieDetailPage } from "./pages/MovieDetail";
 import { ProfilePage } from "./pages/Profile";
@@ -10,6 +11,7 @@ export function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/movies"

@@ -19,8 +19,8 @@ export class UserController {
   static async register(req: Request, res: Response) {
     try {
       const { name, email, password }: UserRegisterDTO = req.body;
-      const user = await UserService.register(name, email, password);
-      res.status(201).json(user);
+      const result = await UserService.register(name, email, password);
+      res.status(201).json(result);
       return;
     } catch (err: unknown) {
       if (err instanceof Error) {

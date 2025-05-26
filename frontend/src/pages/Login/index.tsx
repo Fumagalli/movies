@@ -36,7 +36,9 @@ export function LoginPage() {
 
             <div className="input-group">
               <label>
-                Nome/E-mail
+                {/* TODO: Permitir login com nome */}
+                {/* Nome/ */}
+                E-mail
                 <input
                   type="email"
                   placeholder="E-mail"
@@ -69,9 +71,9 @@ export function LoginPage() {
 
           </form>
 
-          <p className="login-link">
+          {/* <p className="login-link">
             Não tem conta? <Link to="/register">Cadastre-se</Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </PageTemplate>

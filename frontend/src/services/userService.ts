@@ -6,7 +6,8 @@ export async function registerUser(data: {
   password: string;
 }): Promise<void> {
   const response = await api.post("/users/register", data);
-  console.log("response.data", response.data);
+  const { token } = response.data;
+  localStorage.setItem("token", token);
   return;
 }
 

@@ -1,24 +1,98 @@
 .movie-card {
-  background: #222;
-  color: #fff;
-  border-radius: 8px;
+  background: transparent;
+  border-radius: 12px;
   overflow: hidden;
-  width: 220px;
-  margin: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  width: 235px;
+  height: 355px;
+  // box-shadow: 0 2px 8px rgba(30, 28, 38, 0.1);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
   transition: transform 0.2s;
-}
-.movie-card:hover {
-  transform: scale(1.03);
-}
-.movie-card img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
-.movie-card__info {
-  padding: 1rem;
-}
-.movie-card__info h3 {
-  margin: 0 0 0.5rem 0;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    .movie-card__overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #232225;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #232225cc 60%, #232225ee 100%);
+    color: #eeeef0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    justify-content: stretch;
+    padding: 0;
+  }
+
+  &__info {
+    width: 100%;
+    padding: 20px 16px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: none;
+  }
+
+  &__title {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: #eee;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__tags {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 12.8px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #b5b2bc;
+    margin-top: 8px;
+    gap: 8px;
+  }
 }

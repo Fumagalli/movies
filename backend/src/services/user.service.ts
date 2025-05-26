@@ -11,7 +11,17 @@ export class UserService {
     const hash = await bcrypt.hash(password, 10);
     const user = repo.create({ name, email, password: hash });
     await repo.save(user);
-    return user;
+
+    const token = jwt.sign(
+      { id: user.id, email: user.email },
+      process.env.JWT_SECRET || "secret",
+      { expiresIn: "1d" }
+    );
+
+    console.log("token", token);
+
+    // acho que não precisa retornar o user.
+    return { user, token };
   }
 
   static async login(email: string, password: string) {
@@ -20,7 +30,14 @@ export class UserService {
     if (!user) throw new Error("Invalid credentials");
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) throw new Error("Invalid credentials");
-    const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET || "secret", { expiresIn: "1d" });
+
+    const token = jwt.sign(
+      { id: user.id, email: user.email },
+      process.env.JWT_SECRET || "secret",
+      { expiresIn: "1d" }
+    );
+
+    // acho que não precisa retonar o user.
     return { user, token };
   }
 

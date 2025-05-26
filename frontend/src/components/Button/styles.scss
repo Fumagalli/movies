@@ -16,6 +16,7 @@
   text-align: center;
 
   background-color: #8e4ec6;
+  color: #fff;
 
   &:hover {
     border-radius: 2px;
@@ -67,10 +68,12 @@
     text-align: center;
 
     background-color: #6f6d78;
+    color: #ece9fd7d;
   }
 
   &.primary {
     background-color: #8e4ec6;
+    color: #fff;
 
     &:hover {
       background-color: #9a5cd0;
@@ -82,10 +85,12 @@
 
     &:disabled {
       background-color: #6f6d78;
+      color: #ece9fd7d;
     }
   }
   &.secondary {
     background-color: #b744f714;
+    color: #f1ddfffa;
 
     &:hover {
       background-color: #c150ff2e;
@@ -97,6 +102,7 @@
 
     &:disabled {
       background-color: #ebeaf814;
+      color: #ece9fd7d;
     }
   }
 }
