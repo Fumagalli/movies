@@ -1,0 +1,24 @@
+.movie-card {
+  background: #222;
+  color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 220px;
+  margin: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+.movie-card:hover {
+  transform: scale(1.03);
+}
+.movie-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+.movie-card__info {
+  padding: 1rem;
+}
+.movie-card__info h3 {
+  margin: 0 0 0.5rem 0;
+}

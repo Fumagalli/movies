@@ -1,24 +1,14 @@
-import { useEffect, useState } from "react";
-import { getMovies } from "../../services/movieService";
+import { MovieCard } from "../MovieCard";
 import type { Movie } from "../../types/Movie";
+import "./styles.scss";
 
-export function MovieList() {
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    getMovies()
-      .then(data => setMovies(Array.isArray(data.data) ? data.data : []))
-      .catch(err => setError(err.message));
-  }, []);
-
-  if (error) return <div>{error}</div>;
-
+export function MovieList({ movies }: { movies: Movie[] }) {
+  if (!movies.length) return <div>Nenhum filme encontrado.</div>;
   return (
-    <ul>
-      {movies.map((movie) => (
-        <li key={movie.id}>{movie.title}</li>
+    <div className="movies-list">
+      {movies.map(movie => (
+        <MovieCard key={movie.id} movie={movie} />
       ))}
-    </ul>
+    </div>
   );
 }
