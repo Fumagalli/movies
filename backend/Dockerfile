@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Comando para iniciar o backend
-CMD ["node", "app.js"]
+CMD ["npx", "ts-node", "app.ts"]

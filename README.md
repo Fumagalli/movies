@@ -87,7 +87,9 @@ Criar um aplicativo web fullstack responsivo para cadastro, edição, visualiza�
 
 ## Iniciar o projeto
 
-Na raiz do projeto, rodar o comando
+- Renomear o arquivo `.env-template`, para `.env` e ajustar as variaveis para os dados do BD
+
+- Na raiz do projeto, rodar o comando
 
 ```js
 docker-compose up --build -d
